@@ -1,7 +1,11 @@
 %YAML:1.0
+bag:
+    path: /data/test.bag
 camera:
+    data_set: KITTI
+    path: /data/KITTI/2011_09_28_drive_0016_sync/image_00
     topic_name: /camera/image_raw
-    test1: 1
 lidar:
     topic_name: /sensor_msgs/PointCloud2
-    test2: 2
+    data_set: KITTI
+    file_path: path

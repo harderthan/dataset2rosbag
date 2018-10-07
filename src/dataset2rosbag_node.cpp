@@ -1,5 +1,9 @@
+#include "DataCombiner.hpp"
 #include "YamlParamReader.hpp"
+
 #include <ros/ros.h>
+
+using namespace dataset2rogbag;
 
 int main(int argc, char** argv)
 {
@@ -7,16 +11,15 @@ int main(int argc, char** argv)
     ros::NodeHandle nh;
     ros::NodeHandle private_nh("~");
 
+    // Get params from yaml params
+    cv::FileStorage *fs_pt;
     YamlParamReader param_reader(nh);
+    param_reader.getFileStorage(fs_pt);
 
-    std::string node_name = "camera";
-    cv::FileNode fn = param_reader.getFileNode(node_name);
-/*
-    std::string topic_name = std::string(fn["topic_name"]);
-    int test1      = fn["test1"];
+    DataContext context(fs_pt);
 
-    ROS_INFO("%s", topic_name.c_str());
-    ROS_INFO("%d", test1);
-*/
     return 0;
+
 }
+
+

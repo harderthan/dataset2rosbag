@@ -1,5 +1,5 @@
-#ifndef PARAM_READER_HPP_
-#define PARAM_READER_HPP_
+#ifndef YAML_PARAM_READER_HPP_
+#define YAML_PARAM_READER_HPP_
 #include <opencv2/opencv.hpp>
 #include <ros/ros.h>
 #include <ros/console.h>
@@ -12,9 +12,9 @@ class YamlParamReader{
 public:
     YamlParamReader(ros::NodeHandle &nh);
     ~YamlParamReader();
-    cv::FileNode getFileNode(const std::string &node_name);
+    void getFileStorage(cv::FileStorage *fs);
 private:
     ros::NodeHandle m_nh;
     cv::FileStorage *m_fs;
 };
-#endif // PARAM_READER_HPP_
+#endif // YAML_PARAM_READER_HPP_

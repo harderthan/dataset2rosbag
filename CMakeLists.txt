@@ -6,7 +6,7 @@ add_compile_options(-std=c++11)
 
 find_package(OpenCV REQUIRED)
 
-find_package(catkin REQUIRED roscpp)
+find_package(catkin REQUIRED roscpp rosbag roslib)
 
 catkin_package()
 
@@ -17,6 +17,8 @@ include_directories(
 )
 
 set(SOURCES
+    src/DataCombiner.cpp
+    src/DataContext.cpp
     src/dataset2rosbag_node.cpp
     src/YamlParamReader.cpp
 )
